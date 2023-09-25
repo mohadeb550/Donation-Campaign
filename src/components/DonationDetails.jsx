@@ -38,8 +38,10 @@ export default function DonationDetails() {
   return (
 
     <div className="mt-6 mb-14">
+        
         <div className="relative">
             <img className=" h-[400px] md:[550px] lg:h-[700px] w-full object-cover rounded-md" src={image} />
+            
             <div className="absolute bottom-0 h-[17%] w-full rounded-b-md bg-[#00000070] flex items-center p-8 ">
 
          <button className="bg-red-500 text-gray-50 font-semibold py-2 px-4 rounded hover:bg-red-600" onClick={handleSaveLocalStorage}> Donate ${price} </button>
