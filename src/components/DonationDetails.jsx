@@ -11,7 +11,7 @@ export default function DonationDetails() {
     const [ donation ,setDonation ] = useState({});
 
 
-    const { image, title, price , description } = donation;
+    const { image, title, price , description ,text_color } = donation;
   
     useEffect(()=>{
         setDonation(allDonation.find(donation => donation.id === id));
@@ -24,13 +24,13 @@ export default function DonationDetails() {
            if(!isExist){
             prevDonationIds.push(id);
             localStorage.setItem('donationIds', JSON.stringify(prevDonationIds));
-            swal("Donation Successful", "Thank you for your help!", "success");
+            swal("Donation Successful", "Thank you for your donation!", "success");
             return;
            }
-           return swal("Donation Existed", "You can't repeat same donation field!", "error");
+           return swal("Already Exist", "You can't repeat same donation field!", "error");
         }
         localStorage.setItem('donationIds',JSON.stringify([id]));
-        swal("Donation Successful", "Thank you for your help!", "success");
+        swal("Donation Successful", "Thank you for your donation!", "success");
     }
 
     
@@ -44,7 +44,7 @@ export default function DonationDetails() {
             
             <div className="absolute bottom-0 h-[17%] w-full rounded-b-md bg-[#00000070] flex items-center p-8 ">
 
-         <button className="bg-red-500 text-gray-50 font-semibold py-2 px-4 rounded hover:bg-red-600" onClick={handleSaveLocalStorage}> Donate ${price} </button>
+         <button style={{backgroundColor:text_color}} className="text-gray-50 font-semibold py-2 px-4 rounded" onClick={handleSaveLocalStorage}> Donate ${price} </button>
             </div>
         </div>
         <h1 className="text-4xl font-bold my-5"> {title} </h1>

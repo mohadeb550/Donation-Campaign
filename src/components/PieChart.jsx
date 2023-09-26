@@ -12,7 +12,7 @@ const renderCustomizedLabel = ({ cx,cy, midAngle,innerRadius,outerRadius,percent
   const y = cy + radius * Math.sin(-midAngle * (Math.PI / 180));
 
   return (
-    <text className='text-xl font-semibold'  x={x}  y={y} fill="white" textAnchor={x > cx ? 'start' : 'end'}
+    <text className='text-base md:text-xl font-semibold'  x={x}  y={y} fill="white" textAnchor={x > cx ? 'start' : 'end'}
       dominantBaseline="central"
     >
       {`${(percent * 100).toFixed(1)}%`}
@@ -36,14 +36,13 @@ const Chart = ({ totalDonation, yourDonation }) => {
    <section className='w-[87%] md:w-[80%] lg:w-[70%] h-[68vh]  mx-auto'>
     <ResponsiveContainer width='100%' height='100%'>
     <PieChart >
-      <Pie  data={data} paddingAngle={3} dataKey="value" label={renderCustomizedLabel} >
+      <Pie  data={data} paddingAngle={2} dataKey="value" label={renderCustomizedLabel} >
         
         {data.map((element, index) => (
           <Cell key={index}  fill={COLORS[index]} />
         ))}
 
       </Pie>
-      <Tooltip />
       <Legend />
     </PieChart>
     </ResponsiveContainer>

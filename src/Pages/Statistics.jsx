@@ -6,17 +6,19 @@ export default function Statistics() {
 
   const allDonation = useContext(AllDonation);
 
-  const [ totalDonation ,setTotalDonation ] = useState(0);
+  const [ totalDonation ,setTotalDonation ] = useState(12);
   const [ yourDonation ,setYourDonation ] = useState(0);
 
   useEffect(()=>{
 
-    setTotalDonation(allDonation.reduce((preValue, currentValue)=> preValue + currentValue.price ,0 ))
 
     const storedDonationIds = JSON.parse(localStorage.getItem('donationIds'));
     if(storedDonationIds){
      const foundDonation = allDonation.filter(donation => storedDonationIds.includes(donation.id));
-     setYourDonation(foundDonation.reduce((preValue, currentValue)=> preValue + currentValue.price ,0 ))
+
+     setTotalDonation(allDonation.length - foundDonation.length)
+     setYourDonation(foundDonation.length)
+   
     }
 
   },[])
