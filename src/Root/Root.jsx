@@ -9,7 +9,7 @@ import { createContext } from "react";
 
   return (
     <>
-   <section className="max-w-[1350px] px-4 md:px-7 lg:px-0 mx-auto">
+   <section className="max-w-[1380px] px-4 md:px-7 lg:px-5 mx-auto">
 
     <AllDonation.Provider value={data}>
 
